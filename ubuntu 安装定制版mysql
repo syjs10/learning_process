@@ -1,0 +1,18 @@
+ Ubuntu 使用apt-get install安装制定版本的mysql
+
+第一步  卸载mysql
+1
+sudo apt-get autoremove --purge mysql-server-5.0
+2
+sudo apt-get remove mysql-server
+3
+sudo apt-get autoremove mysql-server
+4
+sudo apt-get remove mysql-common (非常重要)
+第二步  安装mysql
+1=
+sudo apt-get install mysql-server=5.5.40-0ubuntu0.12.04.1    指定安装的版本
+2
+sudo apt-get install mysql-workbench   操作mysql的图形交互界面
+
+
