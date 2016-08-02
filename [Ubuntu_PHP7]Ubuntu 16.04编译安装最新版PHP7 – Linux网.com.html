@@ -1,0 +1,418 @@
+<!doctype html>
+<!--[if !IE]>
+<html class="no-js non-ie" lang="zh-CN"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="no-js ie7" lang="zh-CN"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="no-js ie8" lang="zh-CN"> <![endif]-->
+<!--[if IE 9 ]>
+<html class="no-js ie9" lang="zh-CN"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="zh-CN"> <!--<![endif]-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="http://www.linuxwang.com/xmlrpc.php">
+
+<title>[Ubuntu/PHP7]Ubuntu 16.04编译安装最新版PHP7 &#8211; Linux网.com</title>
+<link rel="alternate" type="application/rss+xml" title="Linux网.com &raquo; Feed" href="http://www.linuxwang.com/feed" />
+<link rel="alternate" type="application/rss+xml" title="Linux网.com &raquo; 评论Feed" href="http://www.linuxwang.com/comments/feed" />
+<link rel='stylesheet' id='sparkling-bootstrap-css'  href='http://www.linuxwang.com/wp-content/themes/sparkling/inc/css/bootstrap.min.css?ver=1461821342' type='text/css' media='all' />
+<link rel='stylesheet' id='sparkling-icons-css'  href='http://www.linuxwang.com/wp-content/themes/sparkling/inc/css/font-awesome.min.css?ver=1461821342' type='text/css' media='all' />
+<link rel='stylesheet' id='sparkling-fonts-css'  href='//fonts.googleapis.com/css?family=Open+Sans%3A400italic%2C400%2C600%2C700%7CRoboto+Slab%3A400%2C300%2C700&#038;ver=1461821342' type='text/css' media='all' />
+<link rel='stylesheet' id='sparkling-style-css'  href='http://www.linuxwang.com/wp-content/themes/sparkling/style.css?ver=1461821342' type='text/css' media='all' />
+<link rel='stylesheet' id='ecae-buttonskin-none-css'  href='http://www.linuxwang.com/wp-content/plugins/easy-custom-auto-excerpt/buttons/ecae-buttonskin-none.css?ver=1461821342' type='text/css' media='all' />
+<link rel='stylesheet' id='ecae-frontend-css-css'  href='http://www.linuxwang.com/wp-content/plugins/easy-custom-auto-excerpt/assets/style-frontend.css?ver=1461821342' type='text/css' media='all' />
+<script type="text/javascript">
+var duoshuoQuery = {"short_name":"linuxnet","sso":{"login":"http:\/\/www.linuxwang.com\/wp-login.php?action=duoshuo_login","logout":"http:\/\/www.linuxwang.com\/wp-login.php?action=logout&_wpnonce=534c48becc"},"theme":"default","stylePatch":"wordpress\/Sparkling"};
+duoshuoQuery.sso.login += '&redirect_to=' + encodeURIComponent(window.location.href);
+duoshuoQuery.sso.logout += '&redirect_to=' + encodeURIComponent(window.location.href);
+</script>
+    <script type="text/javascript" src="http://static.duoshuo.com/embed.js" charset="UTF-8" async="async"></script>
+<script type='text/javascript' src='//dn-staticfile.qbox.me/jquery/2.1.4/jquery.min.js?ver=1461821342'></script>
+<script type='text/javascript' src='http://www.linuxwang.com/wp-content/themes/sparkling/inc/js/modernizr.min.js?ver=1461821342'></script>
+<script type='text/javascript' src='http://www.linuxwang.com/wp-content/themes/sparkling/inc/js/bootstrap.min.js?ver=1461821342'></script>
+<script type='text/javascript' src='http://www.linuxwang.com/wp-content/themes/sparkling/inc/js/functions.min.js?ver=1461821342'></script>
+<link rel='https://api.w.org/' href='http://www.linuxwang.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.linuxwang.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.linuxwang.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='[Intel/Nvidia]Ubuntu 16.04 LTS Intel/Nvidia双显卡切换' href='http://www.linuxwang.com/html/2150.html' />
+<link rel='next' title='[Port/SSLH]端口复用神器:SSLH' href='http://www.linuxwang.com/html/2159.html' />
+<meta name="generator" content="WordPress 4.5.2" />
+<link rel="canonical" href="http://www.linuxwang.com/html/2157.html" />
+<link rel='shortlink' href='http://www.linuxwang.com/?p=2157' />
+<link rel="alternate" type="application/json+oembed" href="http://www.linuxwang.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.linuxwang.com%2Fhtml%2F2157.html" />
+<link rel="alternate" type="text/xml+oembed" href="http://www.linuxwang.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.linuxwang.com%2Fhtml%2F2157.html&#038;format=xml" />
+<style type="text/css">.entry-content {font-family: Open Sans; font-size:14px; font-weight: ; color:;}</style>		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		
+</head>
+
+<body class="single single-post postid-2157 single-format-standard">
+<a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+<div id="page" class="hfeed site">
+
+	<header id="masthead" class="site-header" role="banner">
+		<nav class="navbar navbar-default " role="navigation">
+			<div class="container">
+				<div class="row">
+					<div class="site-navigation-inner col-sm-12">
+						<div class="navbar-header">
+							<button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+
+							
+							
+							<div id="logo">
+								<p class="site-name">									<a class="navbar-brand" href="http://www.linuxwang.com/" title="Linux网.com" rel="home">Linux网.com</a>
+								</p>							</div><!-- end of #logo -->
+
+							
+						</div>
+						<div class="collapse navbar-collapse navbar-ex1-collapse"><ul id="menu-%e8%8f%9c%e5%8d%951" class="nav navbar-nav"><li id="menu-item-2105" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2105"><a title="实验室" href="http://lab.linuxwang.com">实验室</a></li>
+<li id="menu-item-2103" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-2103 dropdown"><a title="Linux" href="http://www.linuxwang.com/html/category/linux" data-toggle="dropdown" class="dropdown-toggle">Linux <span class="caret"></span></a>
+<ul role="menu" class=" dropdown-menu">
+	<li id="menu-item-2104" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-2104"><a title="Linux" href="http://www.linuxwang.com/html/category/linux">Linux</a></li>
+	<li id="menu-item-1952" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1952"><a title="Android" href="/html/tag/android">Android</a></li>
+	<li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17"><a title="raspberry pi（树莓派）" href="/html/tag/raspberry-pi">raspberry pi（树莓派）</a></li>
+</ul>
+</li>
+<li id="menu-item-2065" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2065 dropdown"><a title="Linux系统下载" href="/" data-toggle="dropdown" class="dropdown-toggle">Linux系统下载 <span class="caret"></span></a>
+<ul role="menu" class=" dropdown-menu">
+	<li id="menu-item-16" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16"><a title="Ubuntu 15.04下载" href="/html/1989.html">Ubuntu 15.04下载</a></li>
+	<li id="menu-item-2015" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2015"><a title="Fedora 24下载" href="/html/2167.html">Fedora 24下载</a></li>
+</ul>
+</li>
+<li id="menu-item-14" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14"><a title="Wordpress教程" href="/html/tag/wordpress">WordPress教程</a></li>
+<li id="menu-item-19" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19"><a title="软件教程" href="/html/category/%e6%96%b0%e9%97%bb/%e8%bd%af%e4%bb%b6%e6%96%b0%e9%97%bb">软件教程</a></li>
+<li id="menu-item-20" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20"><a title="硬件新闻" href="/html/category/%e6%96%b0%e9%97%bb/%e7%a1%ac%e4%bb%b6%e6%96%b0%e9%97%bb">硬件新闻</a></li>
+<li id="menu-item-21" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-21"><a title="电视高清直播" href="/html/sample-page">电视高清直播</a></li>
+<li id="menu-item-2060" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2060"><a title="实时A股" href="http://www.linuxwang.com/shishiagu">实时A股</a></li>
+</ul></div>					</div>
+				</div>
+			</div>
+		</nav><!-- .site-navigation -->
+	</header><!-- #masthead -->
+
+	<div id="content" class="site-content">
+
+		<div class="top-section">
+								</div>
+
+		<div class="container main-content-area">
+            			<div class="row side-pull-left">
+				<div class="main-content-inner col-sm-12 col-md-8">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+			
+<article id="post-2157" class="post-2157 post type-post status-publish format-standard hentry category-linux tag-php7 tag-ubuntu-16-04">
+		<div class="post-inner-content">
+		<header class="entry-header page-header">
+
+			<h1 class="entry-title ">[Ubuntu/PHP7]Ubuntu 16.04编译安装最新版PHP7</h1>
+
+			<div class="entry-meta">
+				<span class="posted-on"><i class="fa fa-calendar"></i> <a href="http://www.linuxwang.com/html/2157.html" rel="bookmark"><time class="entry-date published" datetime="2016-05-12T08:43:03+00:00">2016年5月12日</time><time class="updated" datetime="2016-05-12T08:47:35+00:00">2016年5月12日</time></a></span><span class="byline"> <i class="fa fa-user"></i> <span class="author vcard"><a class="url fn n" href="http://www.linuxwang.com/html/author/543069760">linuxwang.com</a></span></span>
+								<span class="cat-links"><i class="fa fa-folder-open-o"></i>
+					 <a href="http://www.linuxwang.com/html/category/linux" rel="category tag">Linux</a>				</span>
+								
+			</div><!-- .entry-meta -->
+		</header><!-- .entry-header -->
+
+		<div class="entry-content">
+			<p>获取最新版PHP7源码；打开官方网站：（当前最新版7.0.6）</p>
+<pre>https://secure.php.net/</pre>
+<p>下载PHP最新版源码：</p>
+<pre>wget http://cn2.php.net/get/php-7.0.6.tar.bz2/from/this/mirror</pre>
+<p>重命名mirror为php-7.0.6.tar.bz2</p>
+<pre>mv mirror php-7.0.6.tar.bz2</pre>
+<p>解压缩：</p>
+<pre>tar jxf php-7.0.6.tar.bz2</pre>
+<p>安装编译环境：</p>
+<pre>sudo apt-get update
+sudo apt-get install libxml2-dev
+#安装gcc
+sudo apt-get install build-essential
+sudo apt-get install openssl 
+sudo apt-get install libssl-dev 
+apt-get install make
+apt-get install curl
+apt-get install libcurl4-gnutls-dev
+sudo apt-get install libjpeg-dev
+sudo apt-get install libpng-dev
+sudo apt-get install libmcrypt-dev
+sudo apt-get install libreadline6 libreadline6-dev
+cd php-7.0.6</pre>
+<p>编译：（编译参数2个中选择一个，第一段大部分机器即可编译，第二段参数推荐64位x86系统编译）</p>
+<pre>./configure --prefix=/usr/local/php --with-config-file-path=/usr/local/php/etc --enable-fpm --with-fpm-user=www --with-fpm-group=www --with-mysqli --with-pdo-mysql --with-iconv-dir --with-freetype-dir --with-jpeg-dir --with-png-dir --with-zlib --with-libxml-dir=/usr --enable-xml --disable-rpath --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl --enable-mbregex --enable-mbstring --with-mcrypt --enable-ftp --with-gd --enable-gd-native-ttf --with-openssl --with-mhash --enable-pcntl --enable-sockets --with-xmlrpc --enable-zip --enable-soap --without-pear --with-gettext --disable-fileinfo --enable-maintainer-zts</pre>
+<pre>./configure --prefix=/usr/local/php --enable-fpm --enable-inline-optimization --disable-debug --disable-rpath --enable-shared --enable-opcache --with-mysql --with-mysqli --with-mysql-sock --enable-pdo --with-pdo-mysql --with-gettext --enable-mbstring --with-iconv --with-mcrypt --with-mhash --with-openssl --enable-bcmath --enable-soap --with-libxml-dir --enable-pcntl --enable-shmop --enable-sysvmsg --enable-sysvsem --enable-sysvshm --enable-sockets --with-curl --with-zlib --enable-zip --enable-bz2 --with-readline --without-sqlite3 --without-pdo-sqlite --with-pear --with-libdir=/lib/x86_64-linux-gnu --with-gd --with-jpeg-dir=/usr/lib --enable-gd-native-ttf --enable-xml</pre>
+<pre>安装PHP：
+
+make &amp;&amp; sudo make install
+
+配置php-fpm：
+
+cd /usr/local/php/etc
+
+cp php-fpm.conf.default php-fpm.conf
+
+cd /usr/local/php/etc/php-fpm.d
+
+cp www.conf.default www.conf
+
+nano www.conf
+
+修改
+user = www-data
+group = www-data
+
+如果www-data用户不存在，那么先添加www-data用户
+groupadd www-data
+useradd -g www-data www-data
+
+启动php-fpm
+
+sudo /usr/local/php/sbin/php-fpm
+
+加入系统变量
+
+sudo echo "PATH=$PATH:/usr/local/php/bin"&gt;&gt; /etc/profile
+sudo echo "export PATH"&gt;&gt; /etc/profile
+source /etc/profile
+
+查看php版本
+
+php -v</pre>
+<div style="margin-bottom:10px"><html>
+    <head>
+        <!--网页其他内容-->
+    </head>
+    <body>
+        <!--网页其他内容-->
+        <div class="bd-reward-stl"><button id="bdRewardBtn"><span></span></button></div>
+        <!--网页其他内容-->
+        <script type="text/javascript" src="https://zz.bdstatic.com/zzdashang/js/bd-zz-reward.js"></script>
+    </body>
+</html>
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_bdhome" data-cmd="bdhome" title="分享到百度新首页"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{},"image":{"viewList":["qzone","weixin","sqq","tsina","tqq","renren","bdhome"],"viewText":"分享到：","viewSize":"24"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></div>
+<!-- Begin myCopyRight http://30c.org-->
+<link rel="stylesheet" href="http://www.linuxwang.com/wp-content/plugins/mycopyright/myCopyRight.css?v=5"><div id="myCopyRight"><p>本文链接：<a href="http://www.linuxwang.com/html/2157.html" rel="bookmark" title="本文固定链接 http://www.linuxwang.com/html/2157.html">[Ubuntu/PHP7]Ubuntu 16.04编译安装最新版PHP7</a></p><p>本站文章转载请注明来源：<a href="http://www.linuxwang.com">Linux网.com</a></p><br clear="all"></div>
+<!-- End of myCopyRight -->
+					</div><!-- .entry-content -->
+
+		<footer class="entry-meta">
+
+	    		      <!-- tags -->
+	      <div class="tagcloud">
+
+	          <a href="http://www.linuxwang.com/html/tag/php7">php7</a> <a href="http://www.linuxwang.com/html/tag/ubuntu-16-04">Ubuntu 16.04</a> 
+	      </div>
+	      <!-- end tags -->
+	      
+		</footer><!-- .entry-meta -->
+	</div>
+
+	
+</article><!-- #post-## -->
+
+			
+				<nav class="navigation post-navigation" role="navigation">
+		<h1 class="screen-reader-text">文章导航</h1>
+		<div class="nav-links">
+			<div class="nav-previous"><a href="http://www.linuxwang.com/html/2150.html" rel="prev"><i class="fa fa-chevron-left"></i> [Intel/Nvidia]Ubuntu 16.04 LTS Intel/Nvidia双显卡切换</a></div><div class="nav-next"><a href="http://www.linuxwang.com/html/2159.html" rel="next">[Port/SSLH]端口复用神器:SSLH <i class="fa fa-chevron-right"></i></a></div>		</div><!-- .nav-links -->
+	</nav><!-- .navigation -->
+	
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+</div>
+	<div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary">
+		<div class="well">
+						<aside id="search-5" class="widget widget_search">
+<form role="search" method="get" class="form-search" action="http://www.linuxwang.com/">
+  <div class="input-group">
+  	<label class="screen-reader-text" for="s">Search for:</label>
+    <input type="text" class="form-control search-query" placeholder="Search&hellip;" value="" name="s" title="Search for:" />
+    <span class="input-group-btn">
+      <button type="submit" class="btn btn-default" name="submit" id="searchsubmit" value="Search"><span class="glyphicon glyphicon-search"></span></button>
+    </span>
+  </div>
+</form></aside><aside id="categories-2" class="widget widget_categories"><h3 class="widget-title">分类目录</h3>		<ul>
+	<li class="cat-item cat-item-255"><a href="http://www.linuxwang.com/html/category/app%e5%ba%94%e7%94%a8" >APP应用</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="http://www.linuxwang.com/html/category/linux" >Linux</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://www.linuxwang.com/html/category/windows" >Windows</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="http://www.linuxwang.com/html/category/%e6%96%b0%e9%97%bb/%e8%bd%af%e4%bb%b6%e6%96%b0%e9%97%bb/%e5%85%8d%e8%b4%b9%e6%ad%a3%e7%89%88%e8%bd%af%e4%bb%b6-%e6%9d%a5%e8%87%aasafebeta-cnbeta" >免费正版软件 来自safebeta cnbeta</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://www.linuxwang.com/html/category/qita" >其他分类</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="http://www.linuxwang.com/html/category/%e5%a3%81%e7%ba%b8%e4%b8%bb%e9%a2%98" >壁纸主题</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://www.linuxwang.com/html/category/%e5%a4%a7%e6%9d%82%e7%83%a9" >大杂烩</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://www.linuxwang.com/html/category/%e6%96%b0%e9%97%bb" >新闻</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://www.linuxwang.com/html/category/%e6%96%b0%e9%97%bb/%e7%a1%ac%e4%bb%b6%e6%96%b0%e9%97%bb" >硬件新闻</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="http://www.linuxwang.com/html/category/%e7%bd%91%e7%bb%9c%e7%be%8e%e6%96%87" >网络美文</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="http://www.linuxwang.com/html/category/%e8%a7%86%e9%a2%91" >视频</a>
+</li>
+	<li class="cat-item cat-item-14"><a href="http://www.linuxwang.com/html/category/%e6%96%b0%e9%97%bb/%e8%bd%af%e4%bb%b6%e6%96%b0%e9%97%bb/%e8%bd%af%e4%bb%b6%e6%95%99%e7%a8%8b" >软件教程</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="http://www.linuxwang.com/html/category/%e6%96%b0%e9%97%bb/%e8%bd%af%e4%bb%b6%e6%96%b0%e9%97%bb" >软件新闻</a>
+</li>
+	<li class="cat-item cat-item-11"><a href="http://www.linuxwang.com/html/category/%e6%96%b0%e9%97%bb/%e8%bd%af%e4%bb%b6%e6%96%b0%e9%97%bb/%e8%bd%af%e4%bb%b6%e8%b5%84%e8%ae%af-%e5%8d%87%e7%ba%a7%e8%a1%a5%e4%b8%81%e4%bf%a1%e6%81%af" >软件资讯.升级补丁信息</a>
+</li>
+	<li class="cat-item cat-item-12"><a href="http://www.linuxwang.com/html/category/%e9%9f%b3%e4%b9%90" >音乐</a>
+</li>
+		</ul>
+</aside><aside id="tag_cloud-2" class="widget widget_tag_cloud"><h3 class="widget-title">标签</h3><div class="tagcloud"><a href='http://www.linuxwang.com/html/tag/4g' class='tag-link-18 tag-link-position-1' title='2个话题' style='font-size: 8pt;'>4G</a>
+<a href='http://www.linuxwang.com/html/tag/android' class='tag-link-23 tag-link-position-2' title='12个话题' style='font-size: 13.959459459459pt;'>Android</a>
+<a href='http://www.linuxwang.com/html/tag/apk' class='tag-link-25 tag-link-position-3' title='2个话题' style='font-size: 8pt;'>apk</a>
+<a href='http://www.linuxwang.com/html/tag/app' class='tag-link-256 tag-link-position-4' title='2个话题' style='font-size: 8pt;'>APP</a>
+<a href='http://www.linuxwang.com/html/tag/arch' class='tag-link-26 tag-link-position-5' title='2个话题' style='font-size: 8pt;'>arch</a>
+<a href='http://www.linuxwang.com/html/tag/archon' class='tag-link-29 tag-link-position-6' title='3个话题' style='font-size: 9.1351351351351pt;'>ARChon</a>
+<a href='http://www.linuxwang.com/html/tag/centos' class='tag-link-38 tag-link-position-7' title='2个话题' style='font-size: 8pt;'>CentOS</a>
+<a href='http://www.linuxwang.com/html/tag/chrome' class='tag-link-39 tag-link-position-8' title='4个话题' style='font-size: 10.081081081081pt;'>Chrome</a>
+<a href='http://www.linuxwang.com/html/tag/cinnamon' class='tag-link-40 tag-link-position-9' title='2个话题' style='font-size: 8pt;'>Cinnamon</a>
+<a href='http://www.linuxwang.com/html/tag/cpu' class='tag-link-42 tag-link-position-10' title='3个话题' style='font-size: 9.1351351351351pt;'>CPU</a>
+<a href='http://www.linuxwang.com/html/tag/debian' class='tag-link-45 tag-link-position-11' title='6个话题' style='font-size: 11.5pt;'>Debian</a>
+<a href='http://www.linuxwang.com/html/tag/deepin' class='tag-link-46 tag-link-position-12' title='5个话题' style='font-size: 10.837837837838pt;'>Deepin</a>
+<a href='http://www.linuxwang.com/html/tag/dns' class='tag-link-49 tag-link-position-13' title='2个话题' style='font-size: 8pt;'>DNS</a>
+<a href='http://www.linuxwang.com/html/tag/elementary-os' class='tag-link-53 tag-link-position-14' title='4个话题' style='font-size: 10.081081081081pt;'>Elementary OS</a>
+<a href='http://www.linuxwang.com/html/tag/evolve' class='tag-link-54 tag-link-position-15' title='2个话题' style='font-size: 8pt;'>Evolve</a>
+<a href='http://www.linuxwang.com/html/tag/fedora' class='tag-link-56 tag-link-position-16' title='7个话题' style='font-size: 11.972972972973pt;'>fedora</a>
+<a href='http://www.linuxwang.com/html/tag/fedora%ef%bc%8clinux' class='tag-link-57 tag-link-position-17' title='2个话题' style='font-size: 8pt;'>fedora，Linux</a>
+<a href='http://www.linuxwang.com/html/tag/gnome' class='tag-link-64 tag-link-position-18' title='5个话题' style='font-size: 10.837837837838pt;'>Gnome</a>
+<a href='http://www.linuxwang.com/html/tag/intel' class='tag-link-69 tag-link-position-19' title='2个话题' style='font-size: 8pt;'>intel</a>
+<a href='http://www.linuxwang.com/html/tag/ios' class='tag-link-70 tag-link-position-20' title='4个话题' style='font-size: 10.081081081081pt;'>ios</a>
+<a href='http://www.linuxwang.com/html/tag/java' class='tag-link-75 tag-link-position-21' title='3个话题' style='font-size: 9.1351351351351pt;'>JAVA</a>
+<a href='http://www.linuxwang.com/html/tag/kde' class='tag-link-77 tag-link-position-22' title='5个话题' style='font-size: 10.837837837838pt;'>KDE</a>
+<a href='http://www.linuxwang.com/html/tag/kde5' class='tag-link-78 tag-link-position-23' title='4个话题' style='font-size: 10.081081081081pt;'>KDE5</a>
+<a href='http://www.linuxwang.com/html/tag/kubuntu' class='tag-link-80 tag-link-position-24' title='4个话题' style='font-size: 10.081081081081pt;'>Kubuntu</a>
+<a href='http://www.linuxwang.com/html/tag/linux' class='tag-link-84 tag-link-position-25' title='91个话题' style='font-size: 22pt;'>Linux</a>
+<a href='http://www.linuxwang.com/html/tag/linux-mint' class='tag-link-87 tag-link-position-26' title='8个话题' style='font-size: 12.445945945946pt;'>Linux Mint</a>
+<a href='http://www.linuxwang.com/html/tag/lubuntu' class='tag-link-89 tag-link-position-27' title='3个话题' style='font-size: 9.1351351351351pt;'>Lubuntu</a>
+<a href='http://www.linuxwang.com/html/tag/lxle' class='tag-link-90 tag-link-position-28' title='2个话题' style='font-size: 8pt;'>LXLE</a>
+<a href='http://www.linuxwang.com/html/tag/mageia' class='tag-link-91 tag-link-position-29' title='5个话题' style='font-size: 10.837837837838pt;'>Mageia</a>
+<a href='http://www.linuxwang.com/html/tag/mate' class='tag-link-96 tag-link-position-30' title='4个话题' style='font-size: 10.081081081081pt;'>Mate</a>
+<a href='http://www.linuxwang.com/html/tag/mtk' class='tag-link-101 tag-link-position-31' title='3个话题' style='font-size: 9.1351351351351pt;'>MTK</a>
+<a href='http://www.linuxwang.com/html/tag/opensuse' class='tag-link-109 tag-link-position-32' title='4个话题' style='font-size: 10.081081081081pt;'>opensuse</a>
+<a href='http://www.linuxwang.com/html/tag/php' class='tag-link-115 tag-link-position-33' title='3个话题' style='font-size: 9.1351351351351pt;'>PHP</a>
+<a href='http://www.linuxwang.com/html/tag/raspberry-pi' class='tag-link-119 tag-link-position-34' title='14个话题' style='font-size: 14.621621621622pt;'>Raspberry Pi</a>
+<a href='http://www.linuxwang.com/html/tag/ubuntu' class='tag-link-131 tag-link-position-35' title='42个话题' style='font-size: 18.878378378378pt;'>Ubuntu</a>
+<a href='http://www.linuxwang.com/html/tag/ubuntu-14-10' class='tag-link-133 tag-link-position-36' title='3个话题' style='font-size: 9.1351351351351pt;'>ubuntu 14.10</a>
+<a href='http://www.linuxwang.com/html/tag/ubuntu-gnome' class='tag-link-136 tag-link-position-37' title='3个话题' style='font-size: 9.1351351351351pt;'>ubuntu gnome</a>
+<a href='http://www.linuxwang.com/html/tag/windows-2' class='tag-link-151 tag-link-position-38' title='3个话题' style='font-size: 9.1351351351351pt;'>windows</a>
+<a href='http://www.linuxwang.com/html/tag/wine' class='tag-link-152 tag-link-position-39' title='3个话题' style='font-size: 9.1351351351351pt;'>Wine</a>
+<a href='http://www.linuxwang.com/html/tag/wordpress' class='tag-link-153 tag-link-position-40' title='5个话题' style='font-size: 10.837837837838pt;'>wordpress</a>
+<a href='http://www.linuxwang.com/html/tag/xubuntu' class='tag-link-158 tag-link-position-41' title='4个话题' style='font-size: 10.081081081081pt;'>Xubuntu</a>
+<a href='http://www.linuxwang.com/html/tag/%e5%be%ae%e8%bd%af' class='tag-link-171 tag-link-position-42' title='4个话题' style='font-size: 10.081081081081pt;'>微软</a>
+<a href='http://www.linuxwang.com/html/tag/%e6%a0%91%e8%8e%93%e6%b4%be' class='tag-link-179 tag-link-position-43' title='8个话题' style='font-size: 12.445945945946pt;'>树莓派</a>
+<a href='http://www.linuxwang.com/html/tag/%e7%89%a9%e8%81%94%e7%bd%91' class='tag-link-183 tag-link-position-44' title='9个话题' style='font-size: 12.918918918919pt;'>物联网</a>
+<a href='http://www.linuxwang.com/html/tag/%e9%98%b2%e7%81%ab%e5%a2%99' class='tag-link-237 tag-link-position-45' title='3个话题' style='font-size: 9.1351351351351pt;'>防火墙</a></div>
+</aside>		<aside id="recent-posts-2" class="widget widget_recent_entries">		<h3 class="widget-title">近期文章</h3>		<ul>
+					<li>
+				<a href="http://www.linuxwang.com/html/2167.html">【Fedora/Linux】Fedora 24正式版下载</a>
+						</li>
+					<li>
+				<a href="http://www.linuxwang.com/html/2159.html">[Port/SSLH]端口复用神器:SSLH</a>
+						</li>
+					<li>
+				<a href="http://www.linuxwang.com/html/2157.html">[Ubuntu/PHP7]Ubuntu 16.04编译安装最新版PHP7</a>
+						</li>
+					<li>
+				<a href="http://www.linuxwang.com/html/2150.html">[Intel/Nvidia]Ubuntu 16.04 LTS Intel/Nvidia双显卡切换</a>
+						</li>
+					<li>
+				<a href="http://www.linuxwang.com/html/2144.html">[Netdata]Ubuntu中安装Netdata系统监测工具</a>
+						</li>
+				</ul>
+		</aside>		<aside id="recent-comments-2" class="widget widget_recent_comments"><h3 class="widget-title">近期评论</h3><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link">test</span>发表在《<a href="http://www.linuxwang.com/html/2144.html#comment-143">[Netdata]Ubuntu中安装Netdata系统监测工具</a>》</li><li class="recentcomments"><span class="comment-author-link"><a href='http://www.linuxwang.com/' rel='external nofollow' class='url'>更多教程</a></span>发表在《<a href="http://www.linuxwang.com/html/2131.html#comment-142">[MATE Desktop]Ubuntu 16.04/15.10中安装MATE Desktop 1.12.1版</a>》</li><li class="recentcomments"><span class="comment-author-link">刘靖</span>发表在《<a href="http://www.linuxwang.com/html/1685.html#comment-140">【ARChon Chrome】ARChon 1.2 下载</a>》</li><li class="recentcomments"><span class="comment-author-link"><a href='http://www.linuxwang.com/' rel='external nofollow' class='url'>陕D-裤衩</a></span>发表在《<a href="http://www.linuxwang.com/html/2093.html#comment-138">【MySQL/MariaDB】MySQL数据库转移到MariaDB数据库</a>》</li><li class="recentcomments"><span class="comment-author-link"><a href='http://www.linuxwang.com/' rel='external nofollow' class='url'>更多Linux相关教程</a></span>发表在《<a href="http://www.linuxwang.com/html/1834.html#comment-106">【Raspberry Pi】树莓派安装DLAN服务</a>》</li></ul></aside><aside id="text-7" class="widget widget_text"><h3 class="widget-title">日本超高性价比VPS</h3>			<div class="textwidget"><a href="https://www.vultr.com/?ref=6902821"><img src="http://7xthg0.com1.z0.glb.clouddn.com/vultrjpvps.png" width="298" height="249"/></a></div>
+		</aside>		</div>
+	</div><!-- #secondary -->
+		</div><!-- close .row -->
+	</div><!-- close .container -->
+</div><!-- close .site-content -->
+
+	<div id="footer-area">
+		<div class="container footer-inner">
+			<div class="row">
+				
+	
+	<div class="footer-widget-area">
+				<div class="col-sm-4 footer-widget" role="complementary">
+			<div id="text-2" class="widget widget_text"><h3 class="widgettitle">友情链接</h3>			<div class="textwidget"><p><a title="Xnces - 衔铁部落" <a href="http://www.xnces.com/">Xnces - 衔铁部落</a>：Xnces - 衔铁部落.各类神奇的WordPress插件</p>
+<p><a href="http://www.vanglis.com/">征服天堂博客</a><br />
+<a href="http://www.geekfan.net/">极客范</a></p>
+</div>
+		</div><div id="text-6" class="widget widget_text"><h3 class="widgettitle">网站地图</h3>			<div class="textwidget"><a href="http://www.linuxwang.com/sitemap.html">网站地图</a></div>
+		</div>		</div><!-- .widget-area .first -->
+		
+				<div class="col-sm-4 footer-widget" role="complementary">
+			<div id="rss-2" class="widget widget_rss"><h3 class="widgettitle"><a class="rsswidget" href="http://www.linuxwang.com/feed"><img class="rss-widget-icon" style="border:0" width="14" height="14" src="http://www.linuxwang.com/wp-includes/images/rss.png" alt="RSS" /></a> <a class="rsswidget" href="http://www.linuxwang.com/">Linux网.com</a></h3><ul><li><a class='rsswidget' href='http://www.linuxwang.com/html/2167.html'>【Fedora/Linux】Fedora 24正式版下载</a> <span class="rss-date">2016年6月25日</span> <cite>linuxwang.com</cite></li><li><a class='rsswidget' href='http://www.linuxwang.com/html/2159.html'>[Port/SSLH]端口复用神器:SSLH</a> <span class="rss-date">2016年6月2日</span> <cite>linuxwang.com</cite></li><li><a class='rsswidget' href='http://www.linuxwang.com/html/2157.html'>[Ubuntu/PHP7]Ubuntu 16.04编译安装最新版PHP7</a> <span class="rss-date">2016年5月12日</span> <cite>linuxwang.com</cite></li><li><a class='rsswidget' href='http://www.linuxwang.com/html/2150.html'>[Intel/Nvidia]Ubuntu 16.04 LTS Intel/Nvidia双显卡切换</a> <span class="rss-date">2016年4月21日</span> <cite>linuxwang.com</cite></li></ul></div>		</div><!-- .widget-area .second -->
+		
+				<div class="col-sm-4 footer-widget" role="complementary">
+			<div id="meta-3" class="widget widget_meta"><h3 class="widgettitle">功能</h3>			<ul>
+						<li><a href="http://www.linuxwang.com/wp-login.php">登录</a></li>
+			<li><a href="http://www.linuxwang.com/feed">文章<abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://www.linuxwang.com/comments/feed">评论<abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="https://cn.wordpress.org/" title="基于WordPress，一个优美、先进的个人信息发布平台。">WordPress.org</a></li>			</ul>
+			</div><div id="text-4" class="widget widget_text">			<div class="textwidget"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_5950761'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/stat.php%3Fid%3D5950761%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></div>
+		</div>		</div><!-- .widget-area .third -->
+			</div>			</div>
+		</div>
+
+		<footer id="colophon" class="site-footer" role="contentinfo">
+			<div class="site-info container">
+				<div class="row">
+										<nav role="navigation" class="col-md-6">
+											</nav>
+					<div class="copyright col-md-6">
+						sparkling						Theme by <a href="http://colorlib.com/" target="_blank">Colorlib</a> Powered by <a href="http://wordpress.org/" target="_blank">WordPress</a>					</div>
+				</div>
+			</div><!-- .site-info -->
+			<div class="scroll-to-top"><i class="fa fa-angle-up"></i></div><!-- .scroll-to-top -->
+		</footer><!-- #colophon -->
+	</div>
+</div><!-- #page -->
+
+  <script type="text/javascript">
+    jQuery( document ).ready( function( $ ){
+      if ( $( window ).width() >= 767 ){
+        $( '.navbar-nav > li.menu-item > a' ).click( function(){
+            if( $( this ).attr('target') !== '_blank' ){
+                window.location = $( this ).attr( 'href' );
+            }else{
+                var win = window.open($( this ).attr( 'href' ), '_blank');
+                win.focus();
+            }
+        });
+      }
+    });
+  </script>
+<script type='text/javascript' src='http://www.linuxwang.com/wp-content/themes/sparkling/inc/js/skip-link-focus-fix.js?ver=1461821342'></script>
+<script type='text/javascript' src='http://www.linuxwang.com/wp-includes/js/wp-embed.min.js?ver=1461821342'></script>
+
+<script type="text/javascript">
+//<![CDATA[
+(function() {
+var _analytics_scr = document.createElement('script');
+_analytics_scr.type = 'text/javascript'; _analytics_scr.async = true; _analytics_scr.src = '/_Incapsula_Resource?SWJIYLWA=2977d8d74f63d7f8fedbea018b7a1d05&ns=1';
+var _analytics_elem = document.getElementsByTagName('script')[0]; _analytics_elem.parentNode.insertBefore(_analytics_scr, _analytics_elem);
+})();
+// ]]>
+</script></body>
+</html>
+<!-- This is the static html file created at 2016-06-25 20:58:31 by super static cache -->
