@@ -1,0 +1,7 @@
+建数据表时候
+CREATE DATABASE mydb
+DEFAULT CHARACTER SET utf8
+DEFAULT COLLATE utf8_general_ci;
+
+php写入数据之前
+$db->query("SET NAMES 'UTF8'");
