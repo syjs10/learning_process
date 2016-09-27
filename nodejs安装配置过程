@@ -1,0 +1,9 @@
+官网nodejs.org下载最新版nosejs
+解压到/opt目录下
+mv更名为node
+vim ~/.bashrc下添加两行
+export NODE=/opt/node
+export PATH=${NODE}/bin:$PATH
+
+
+最后执行source ~/.bashrc
